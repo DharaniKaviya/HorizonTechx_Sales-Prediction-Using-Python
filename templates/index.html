@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sales Prediction Using Machine Learning — Predict future sales using AI-powered regression models and marketing analytics." />
+  <title>Sales Prediction Using ML | AI-Powered Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand">
+      <span class="icon">📈</span> SalesPredictAI
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/analysis">Analysis</a></li>
+      <li><a href="/predict">Predict</a></li>
+    </ul>
+    <a href="/predict" class="btn nav-cta">🎯 Predict Sales</a>
+    <div class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-bg-orb hero-bg-orb-1"></div>
+  <div class="hero-bg-orb hero-bg-orb-2"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: Text -->
+      <div class="hero-content">
+        <div class="hero-badge">🤖 AI-Powered Machine Learning</div>
+        <h1 class="hero-title">
+          Sales Prediction<br/>
+          <span class="gradient-text">Using Python &amp; ML</span>
+        </h1>
+        <p class="hero-subtitle">
+          Harness the power of advanced regression models to predict future sales
+          from advertising spend, marketing channels, campaign strategies, and regional insights.
+        </p>
+        <div class="hero-actions">
+          <a href="/predict" class="btn btn-primary" id="hero-predict-btn">🎯 Predict Sales</a>
+          <a href="/dashboard" class="btn btn-outline" id="hero-dashboard-btn">📊 View Dashboard</a>
+        </div>
+      </div>
+
+      <!-- Right: Chart Card -->
+      <div class="hero-visual">
+        <div class="hero-chart-card">
+          <div class="chart-header">
+            <span class="chart-title">📈 Monthly Sales Forecast</span>
+            <span class="chart-badge">↑ +24% Growth</span>
+          </div>
+          <canvas id="heroChart" height="200"></canvas>
+        </div>
+        <div class="floating-badge floating-badge-1">🏆 Best Model: Random Forest</div>
+        <div class="floating-badge floating-badge-2">⚡ R² Score: {{ "%.2f"|format(meta.best_r2 * 100) }}%</div>
+        <div class="floating-badge floating-badge-3">📦 {{ meta.total_records }} Records</div>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="hero-stats">
+      <div class="stat-card reveal">
+        <div class="stat-icon">📦</div>
+        <div class="stat-value" data-counter="{{ meta.total_records }}">0</div>
+        <div class="stat-label">Dataset Records</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">🔧</div>
+        <div class="stat-value" data-counter="{{ meta.num_features }}">0</div>
+        <div class="stat-label">Features Used</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value" data-counter="{{ (meta.best_r2 * 100)|int }}" data-suffix="%">0</div>
+        <div class="stat-label">Model Accuracy (R²)</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-icon">🔮</div>
+        <div class="stat-value" data-counter="{{ meta.predictions_made }}">0</div>
+        <div class="stat-label">Predictions Made</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about" style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-badge">📌 About the Project</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:16px;">
+          What is <span class="gradient-text">Sales Prediction?</span>
+        </h2>
+        <p style="color:var(--text-secondary); font-size:1rem; line-height:1.8;">
+          This project uses machine learning regression algorithms to forecast future sales
+          based on advertising budgets, marketing platforms, campaign types, and regional data.
+          It enables data-driven business decisions.
+        </p>
+        <ul class="about-points">
+          <li>Analyze the impact of TV, Radio, Social &amp; Digital advertising on revenue</li>
+          <li>Compare multiple ML models and automatically select the best performer</li>
+          <li>Generate professional EDA visualizations and business insights</li>
+          <li>Provide real-time sales predictions via an interactive web interface</li>
+          <li>Support budget optimization with ROI and efficiency scoring</li>
+        </ul>
+        <div style="margin-top:32px;">
+          <a href="/analysis" class="btn btn-primary btn-sm">📊 Explore EDA</a>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-mini-card reveal"><div class="mini-icon">📊</div><div class="mini-label">Data Analysis</div></div>
+        <div class="about-mini-card reveal"><div class="mini-icon">🤖</div><div class="mini-label">ML Models</div></div>
+        <div class="about-mini-card reveal"><div class="mini-icon">🔮</div><div class="mini-label">Sales Forecast</div></div>
+        <div class="about-mini-card reveal"><div class="mini-icon">💡</div><div class="mini-label">Business Insights</div></div>
+        <div class="about-mini-card reveal"><div class="mini-icon">📈</div><div class="mini-label">ROI Analysis</div></div>
+        <div class="about-mini-card reveal"><div class="mini-icon">🌐</div><div class="mini-label">Web Dashboard</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FEATURES ══════════ -->
+<section id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">✨ Core Features</div>
+      <h2 class="section-title">Everything You Need</h2>
+      <p class="section-subtitle">A complete end-to-end machine learning solution for sales forecasting and marketing analytics.</p>
+    </div>
+    <div class="features-grid">
+      {% set features = [
+        ('🎯','Sales Prediction','Predict future sales with high accuracy using multiple regression algorithms.'),
+        ('🤖','Multiple ML Models','Compare Linear Regression, Decision Tree, Random Forest, Gradient Boosting & XGBoost.'),
+        ('📊','Data Visualization','Professional EDA charts: heatmaps, scatter plots, trend lines, boxplots and more.'),
+        ('📡','Marketing Analytics','Analyze TV, Radio, Social Media, Digital and Newspaper advertising effectiveness.'),
+        ('📈','Forecast Dashboard','Interactive analytics dashboard with Chart.js visualizations and live statistics.'),
+        ('💡','Business Insights','Automated insights: best platform, top channel, optimal month, and ROI analysis.'),
+        ('📱','Responsive Design','Glassmorphism UI that looks stunning on desktop, tablet, and mobile devices.'),
+        ('⚡','Real-time Prediction','Instant sales predictions with budget recommendations and confidence scores.'),
+      ] %}
+      {% for icon, title, desc in features %}
+      <div class="feature-card reveal">
+        <span class="feature-icon">{{ icon }}</span>
+        <div class="feature-title">{{ title }}</div>
+        <div class="feature-desc">{{ desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WORKFLOW ══════════ -->
+<section style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">⚙️ ML Workflow</div>
+      <h2 class="section-title">End-to-End Pipeline</h2>
+      <p class="section-subtitle">From raw CSV data to actionable business predictions in a structured 8-step process.</p>
+    </div>
+    <div class="workflow-steps reveal">
+      {% set steps = [('📦','Dataset'),('🧹','Cleaning'),('🔍','EDA'),('⚙️','Features'),('🎓','Training'),('📏','Evaluation'),('🔮','Prediction'),('💼','Insights')] %}
+      {% for icon, label in steps %}
+      <div class="workflow-step">
+        <div class="step-circle">{{ icon }}</div>
+        <div class="step-label">{{ label }}</div>
+      </div>
+      {% if not loop.last %}<div class="step-arrow">→</div>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ REAL-WORLD APPLICATIONS ══════════ -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">🌍 Real-World Use Cases</div>
+      <h2 class="section-title">Business Applications</h2>
+      <p class="section-subtitle">This solution is applicable across industries for revenue forecasting and marketing optimization.</p>
+    </div>
+    <div class="app-grid">
+      {% set apps = [
+        ('📣','Campaign Planning','Optimize marketing campaigns before launch using predicted ROI.'),
+        ('📅','Sales Forecasting','Forecast monthly and quarterly revenue for business planning.'),
+        ('💰','Budget Optimization','Allocate advertising budgets to highest-performing channels.'),
+        ('🛒','E-commerce','Predict online sales trends and plan inventory accordingly.'),
+        ('🏪','Retail Intelligence','Identify top-performing regions and product categories.'),
+        ('📉','Risk Reduction','Spot underperforming campaigns early and pivot strategy.'),
+        ('🤝','Client Reporting','Generate automated sales reports for stakeholders.'),
+        ('🚀','Revenue Planning','Set data-driven revenue targets aligned with market trends.'),
+      ] %}
+      {% for icon, title, desc in apps %}
+      <div class="app-card reveal">
+        <div class="app-icon">{{ icon }}</div>
+        <div class="app-title">{{ title }}</div>
+        <div class="app-desc">{{ desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TECHNOLOGIES ══════════ -->
+<section style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">🛠️ Tech Stack</div>
+      <h2 class="section-title">Technologies Used</h2>
+    </div>
+    <div class="tech-grid reveal">
+      {% set techs = [
+        ('#5B5FFF','🐍','Python 3'),
+        ('#FFB347','🐼','Pandas'),
+        ('#00D4FF','🔢','NumPy'),
+        ('#8A2BE2','🤖','Scikit-learn'),
+        ('#FF6B9D','🌶️','Flask'),
+        ('#00E676','📊','Matplotlib'),
+        ('#FFB347','🌊','Seaborn'),
+        ('#5B5FFF','🏋️','XGBoost'),
+        ('#FF6B9D','🌐','HTML5 / CSS3'),
+        ('#00D4FF','⚡','JavaScript'),
+        ('#00E676','📉','Chart.js'),
+        ('#8A2BE2','💾','Joblib'),
+      ] %}
+      {% for color, icon, name in techs %}
+      <div class="tech-pill">
+        <span class="tech-dot" style="background:{{ color }};"></span>
+        <span>{{ icon }} {{ name }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section>
+  <div class="container" style="text-align:center;">
+    <div class="glass-static" style="padding:60px 40px; border-radius:var(--radius-xl); max-width:700px; margin:0 auto;">
+      <div style="font-size:3rem; margin-bottom:16px;">🚀</div>
+      <h2 style="font-size:2rem; font-weight:800; margin-bottom:16px;">Ready to Predict Your Sales?</h2>
+      <p style="color:var(--text-secondary); margin-bottom:32px; font-size:1.05rem;">
+        Enter your marketing budget and get an instant AI-powered sales forecast with business recommendations.
+      </p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="/predict" class="btn btn-primary" id="cta-predict-btn">🎯 Start Predicting</a>
+        <a href="/dashboard" class="btn btn-outline" id="cta-dashboard-btn">📊 View Dashboard</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">📈 SalesPredictAI</div>
+        <p class="footer-desc">
+          An internship-level Machine Learning project for sales forecasting using Python, Flask, and Scikit-learn.
+          Built for portfolio, GitHub, and real-world demonstration.
+        </p>
+      </div>
+      <div>
+        <div class="footer-links-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="/">🏠 Home</a></li>
+          <li><a href="/dashboard">📊 Dashboard</a></li>
+          <li><a href="/analysis">🔍 Analysis</a></li>
+          <li><a href="/predict">🎯 Predict</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-links-title">Tech Stack</div>
+        <ul class="footer-links">
+          <li><a href="#">🐍 Python & Flask</a></li>
+          <li><a href="#">🤖 Scikit-learn</a></li>
+          <li><a href="#">📊 Matplotlib & Seaborn</a></li>
+          <li><a href="#">📉 Chart.js</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Sales Prediction Using Python · Internship ML Project</div>
+      <div class="social-links">
+        <a href="#" class="social-link" title="GitHub">🐙</a>
+        <a href="#" class="social-link" title="LinkedIn">💼</a>
+        <a href="#" class="social-link" title="Portfolio">🌐</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

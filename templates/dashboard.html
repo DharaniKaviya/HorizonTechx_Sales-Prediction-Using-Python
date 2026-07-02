@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Analytics Dashboard — Sales Prediction project statistics, model comparison, and business insights."/>
+  <title>Dashboard | Sales Prediction AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand"><span class="icon">📈</span> SalesPredictAI</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/dashboard" class="active">Dashboard</a></li>
+      <li><a href="/analysis">Analysis</a></li>
+      <li><a href="/predict">Predict</a></li>
+    </ul>
+    <a href="/predict" class="btn nav-cta">🎯 Predict Sales</a>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div style="background:var(--bg-secondary); padding:48px 0 40px; border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-badge" style="margin-bottom:12px;">📊 Analytics Dashboard</div>
+    <h1 style="font-size:clamp(2rem,4vw,3rem); font-weight:800; margin-bottom:10px;">
+      <span class="gradient-text">Sales Analytics</span> Overview
+    </h1>
+    <p style="color:var(--text-secondary); font-size:1rem;">
+      Real-time statistics, model performance comparison, and automated business insights.
+    </p>
+  </div>
+</div>
+
+<div style="padding:48px 0;">
+<div class="container">
+
+  <!-- ── Dashboard Stats ── -->
+  <div class="dash-stats">
+    <div class="dash-stat reveal">
+      <div class="dash-stat-icon">📦</div>
+      <div class="dash-stat-value" data-counter="{{ meta.total_records }}">0</div>
+      <div class="dash-stat-label">Total Records</div>
+    </div>
+    <div class="dash-stat reveal">
+      <div class="dash-stat-icon">💹</div>
+      <div class="dash-stat-value" data-counter="{{ meta.avg_sales|int }}" data-prefix="₹" data-suffix="K">0</div>
+      <div class="dash-stat-label">Average Sales</div>
+    </div>
+    <div class="dash-stat reveal">
+      <div class="dash-stat-icon">🏆</div>
+      <div class="dash-stat-value" data-counter="{{ meta.max_sales|int }}" data-prefix="₹" data-suffix="K">0</div>
+      <div class="dash-stat-label">Highest Sales</div>
+    </div>
+    <div class="dash-stat reveal">
+      <div class="dash-stat-icon">🎯</div>
+      <div class="dash-stat-value" data-counter="{{ (meta.best_r2 * 100)|int }}" data-suffix="%">0</div>
+      <div class="dash-stat-label">Model Accuracy (R²)</div>
+    </div>
+    <div class="dash-stat reveal">
+      <div class="dash-stat-icon">🔮</div>
+      <div class="dash-stat-value" data-counter="{{ meta.predictions_made }}">0</div>
+      <div class="dash-stat-label">Predictions Made</div>
+    </div>
+    <div class="dash-stat reveal">
+      <div class="dash-stat-icon">🔧</div>
+      <div class="dash-stat-value" data-counter="{{ meta.num_features }}">0</div>
+      <div class="dash-stat-label">Features Used</div>
+    </div>
+  </div>
+
+  <!-- ── Charts Row ── -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:48px;" class="reveal">
+    <div class="glass-static" style="padding:28px;">
+      <h3 style="margin-bottom:20px; font-size:1rem; color:var(--text-secondary);">📊 Platform Performance</h3>
+      <canvas id="platformChart"
+        data-values='{"Google Ads":1420,"Facebook":1280,"Instagram":1190,"YouTube":1050,"LinkedIn":980,"Twitter":920}'
+        height="220"></canvas>
+    </div>
+    <div class="glass-static" style="padding:28px;">
+      <h3 style="margin-bottom:20px; font-size:1rem; color:var(--text-secondary);">📅 Monthly Sales Distribution</h3>
+      <canvas id="monthChart"
+        data-values='{"Jan":650,"Feb":700,"Mar":760,"Apr":800,"May":840,"Jun":870,"Jul":830,"Aug":860,"Sep":910,"Oct":1020,"Nov":1180,"Dec":1350}'
+        height="220"></canvas>
+    </div>
+  </div>
+
+  <!-- ── Model Comparison Table ── -->
+  <div class="section-header" style="text-align:left; margin-bottom:28px;">
+    <div class="section-badge">🤖 Model Comparison</div>
+    <h2 style="font-size:1.8rem; font-weight:800; margin-top:12px;">
+      Regression Model <span class="gradient-text">Performance</span>
+    </h2>
+  </div>
+
+  <div class="glass-static" style="padding:0; overflow:hidden; margin-bottom:48px;" class="reveal">
+    <div class="model-table-wrap">
+      <table class="model-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>MAE ↓</th>
+            <th>MSE ↓</th>
+            <th>RMSE ↓</th>
+            <th>R² Score ↑</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if meta.model_results %}
+            {% for model_name, scores in meta.model_results.items() %}
+            <tr {% if model_name == meta.best_model %}class="best-row"{% endif %}>
+              <td>
+                <strong>{{ model_name }}</strong>
+                {% if model_name == meta.best_model %}
+                  <span class="best-badge">★ Best</span>
+                {% endif %}
+              </td>
+              <td>{{ scores.MAE }}</td>
+              <td>{{ scores.MSE }}</td>
+              <td>{{ scores.RMSE }}</td>
+              <td>
+                <div class="r2-bar">
+                  <span>{{ scores.R2 }}</span>
+                  <div class="r2-track">
+                    <div class="r2-fill" style="width:{{ [scores.R2 * 100, 100]|min }}%"></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                {% if model_name == meta.best_model %}
+                  <span style="color:var(--green); font-weight:700;">✅ Selected</span>
+                {% else %}
+                  <span style="color:var(--text-muted);">Evaluated</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          {% else %}
+          <tr>
+            <td colspan="6" style="text-align:center; padding:40px; color:var(--text-muted);">
+              ⚠️ Run <code style="background:rgba(91,95,255,0.1); padding:2px 8px; border-radius:4px;">python train_model.py</code> to train models and populate this table.
+            </td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Business Insights ── -->
+  <div class="section-header" style="text-align:left; margin-bottom:28px;">
+    <div class="section-badge">💡 Business Insights</div>
+    <h2 style="font-size:1.8rem; font-weight:800; margin-top:12px;">
+      Automated <span class="gradient-text">Insights</span>
+    </h2>
+  </div>
+
+  <div class="insights-grid" style="margin-bottom:48px;">
+    <div class="insight-card reveal">
+      <div class="insight-icon">🏆</div>
+      <div class="insight-label">Best Performing Platform</div>
+      <div class="insight-value">{{ meta.best_platform | default('Google Ads') }}</div>
+    </div>
+    <div class="insight-card reveal">
+      <div class="insight-icon">📡</div>
+      <div class="insight-label">Most Effective Ad Channel</div>
+      <div class="insight-value">{{ meta.best_channel | default('Digital Spend') }}</div>
+    </div>
+    <div class="insight-card reveal">
+      <div class="insight-icon">📍</div>
+      <div class="insight-label">Highest Sales Region</div>
+      <div class="insight-value">{{ meta.best_region | default('West') }}</div>
+    </div>
+    <div class="insight-card reveal">
+      <div class="insight-icon">📅</div>
+      <div class="insight-label">Best Marketing Month</div>
+      <div class="insight-value">{{ meta.best_month | default('December') }}</div>
+    </div>
+    <div class="insight-card reveal">
+      <div class="insight-icon">🤖</div>
+      <div class="insight-label">Best ML Model</div>
+      <div class="insight-value">{{ meta.best_model | default('Random Forest') }}</div>
+    </div>
+    <div class="insight-card reveal">
+      <div class="insight-icon">📈</div>
+      <div class="insight-label">Model R² Accuracy</div>
+      <div class="insight-value" style="color:var(--green);">{{ "%.2f"|format(meta.best_r2 * 100) }}%</div>
+    </div>
+  </div>
+
+  <!-- ── Quick Actions ── -->
+  <div style="display:flex; gap:16px; flex-wrap:wrap;">
+    <a href="/analysis" class="btn btn-primary">🔍 View EDA Charts</a>
+    <a href="/predict" class="btn btn-outline">🎯 Make a Prediction</a>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Sales Prediction Using Python · Internship ML Project</div>
+      <div class="social-links">
+        <a href="#" class="social-link">🐙</a>
+        <a href="#" class="social-link">💼</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
