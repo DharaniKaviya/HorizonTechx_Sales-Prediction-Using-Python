@@ -1,0 +1,101 @@
+Brand,Model,Year,Fuel_Type,Transmission,Seller_Type,Owner,Mileage,Engine,Max_Power,Seats,Kilometers_Driven,Selling_Price
+Maruti,Swift,2017,Petrol,Manual,Dealer,First Owner,21.21 kmpl,1197 CC,82 bhp,5,22000,550000
+Hyundai,i20,2019,Petrol,Manual,Individual,First Owner,18.6 kmpl,1197 CC,83 bhp,5,15000,720000
+Honda,City,2018,Petrol,Automatic,Dealer,First Owner,17.8 kmpl,1498 CC,119 bhp,5,28000,950000
+Toyota,Innova,2016,Diesel,Manual,Dealer,First Owner,15.1 kmpl,2494 CC,150 bhp,7,65000,1200000
+Maruti,Baleno,2020,Petrol,Automatic,Dealer,First Owner,23.87 kmpl,1197 CC,83 bhp,5,12000,830000
+Hyundai,Creta,2019,Diesel,Manual,Dealer,First Owner,21.4 kmpl,1493 CC,115 bhp,5,32000,1100000
+Ford,EcoSport,2017,Diesel,Manual,Individual,Second Owner,22.77 kmpl,1499 CC,100 bhp,5,48000,680000
+Tata,Nexon,2021,Petrol,Manual,Dealer,First Owner,17.01 kmpl,1199 CC,120 bhp,5,8000,920000
+Mahindra,XUV500,2018,Diesel,Automatic,Dealer,First Owner,16.0 kmpl,2179 CC,155 bhp,7,42000,1350000
+Renault,Kwid,2019,Petrol,Manual,Individual,First Owner,25.17 kmpl,999 CC,54 bhp,5,20000,360000
+Maruti,Alto,2018,Petrol,Manual,Individual,First Owner,24.7 kmpl,796 CC,48 bhp,5,35000,270000
+Hyundai,Verna,2020,Diesel,Automatic,Dealer,First Owner,25.0 kmpl,1493 CC,115 bhp,5,18000,1250000
+Honda,Amaze,2019,Petrol,CVT,Dealer,First Owner,18.3 kmpl,1199 CC,90 bhp,5,22000,780000
+Toyota,Fortuner,2018,Diesel,Automatic,Dealer,First Owner,14.24 kmpl,2755 CC,177 bhp,7,55000,2800000
+Maruti,Dzire,2017,Petrol,Manual,Individual,First Owner,22.0 kmpl,1197 CC,83 bhp,5,42000,520000
+Hyundai,Santro,2019,Petrol,Automatic,Dealer,First Owner,20.3 kmpl,1086 CC,69 bhp,5,15000,580000
+Tata,Harrier,2020,Diesel,Manual,Dealer,First Owner,16.35 kmpl,1956 CC,140 bhp,5,22000,1650000
+Kia,Seltos,2021,Petrol,Automatic,Dealer,First Owner,16.5 kmpl,1353 CC,140 bhp,5,9000,1550000
+Maruti,Vitara Brezza,2019,Petrol,Manual,Dealer,First Owner,17.03 kmpl,1462 CC,104 bhp,5,28000,900000
+Volkswagen,Polo,2017,Petrol,Manual,Individual,Second Owner,15.38 kmpl,999 CC,75 bhp,5,55000,450000
+Honda,WR-V,2018,Diesel,Manual,Dealer,First Owner,25.5 kmpl,1498 CC,100 bhp,5,35000,820000
+Mahindra,Scorpio,2016,Diesel,Manual,Individual,Second Owner,15.4 kmpl,2523 CC,120 bhp,7,80000,780000
+Hyundai,Tucson,2019,Diesel,Automatic,Dealer,First Owner,17.0 kmpl,1995 CC,185 bhp,5,28000,2200000
+Maruti,S-Cross,2018,Diesel,Manual,Dealer,First Owner,25.1 kmpl,1248 CC,90 bhp,5,40000,850000
+Tata,Tiago,2019,Petrol,Manual,Individual,First Owner,23.84 kmpl,1199 CC,86 bhp,5,25000,430000
+Renault,Duster,2017,Diesel,Manual,Dealer,Second Owner,20.45 kmpl,1461 CC,110 bhp,5,60000,680000
+Hyundai,Grand i10,2018,Petrol,Automatic,Dealer,First Owner,18.7 kmpl,1197 CC,83 bhp,5,30000,550000
+Maruti,Wagon R,2020,Petrol,Automatic,Individual,First Owner,20.52 kmpl,1197 CC,83 bhp,5,18000,610000
+Toyota,Camry,2019,Hybrid,Automatic,Dealer,First Owner,23.27 kmpl,2487 CC,178 bhp,5,22000,3800000
+Honda,Jazz,2018,Petrol,CVT,Dealer,First Owner,17.1 kmpl,1199 CC,90 bhp,5,32000,720000
+Kia,Carnival,2021,Diesel,Automatic,Dealer,First Owner,13.4 kmpl,2199 CC,200 bhp,7,12000,3200000
+Maruti,Ertiga,2019,Petrol,Automatic,Dealer,First Owner,19.34 kmpl,1462 CC,105 bhp,7,28000,870000
+Hyundai,Elantra,2018,Diesel,Automatic,Dealer,First Owner,22.0 kmpl,1582 CC,128 bhp,5,38000,1450000
+Ford,Aspire,2017,Diesel,Manual,Individual,Second Owner,25.83 kmpl,1499 CC,100 bhp,5,62000,540000
+Tata,Altroz,2021,Petrol,Manual,Dealer,First Owner,19.05 kmpl,1199 CC,86 bhp,5,8000,720000
+Mahindra,Thar,2021,Diesel,Manual,Dealer,First Owner,15.2 kmpl,2184 CC,130 bhp,4,5000,1450000
+Hyundai,Kona,2020,Electric,Automatic,Dealer,First Owner,452.0 km/charge,NA CC,136 bhp,5,12000,2200000
+Maruti,Ignis,2019,Petrol,Automatic,Dealer,First Owner,20.89 kmpl,1197 CC,83 bhp,5,22000,630000
+Volkswagen,Vento,2018,Petrol,Automatic,Individual,First Owner,17.4 kmpl,1197 CC,105 bhp,5,42000,820000
+Toyota,Glanza,2020,Petrol,CVT,Dealer,First Owner,23.87 kmpl,1197 CC,83 bhp,5,15000,830000
+Honda,BR-V,2017,Petrol,CVT,Individual,Second Owner,15.4 kmpl,1497 CC,119 bhp,7,55000,850000
+Maruti,Celerio,2019,Petrol,AMT,Dealer,First Owner,23.1 kmpl,998 CC,68 bhp,5,20000,480000
+Hyundai,Xcent,2017,Diesel,Manual,Individual,Second Owner,24.4 kmpl,1120 CC,75 bhp,5,58000,430000
+Tata,Hexa,2018,Diesel,Automatic,Dealer,First Owner,16.8 kmpl,1956 CC,156 bhp,6,38000,1650000
+Nissan,Kicks,2020,Diesel,Manual,Dealer,First Owner,20.45 kmpl,1461 CC,110 bhp,5,22000,1050000
+Maruti,Brezza,2021,Petrol,Automatic,Dealer,First Owner,17.03 kmpl,1462 CC,104 bhp,5,9000,990000
+Honda,Civic,2019,Petrol,CVT,Dealer,First Owner,16.5 bmpl,1498 CC,141 bhp,5,18000,1750000
+Hyundai,Venue,2020,Petrol,DCT,Dealer,First Owner,18.15 kmpl,998 CC,120 bhp,5,15000,1050000
+Mahindra,Bolero,2018,Diesel,Manual,Individual,Second Owner,15.96 kmpl,2523 CC,63 bhp,7,72000,680000
+Maruti,Ciaz,2019,Petrol,Automatic,Dealer,First Owner,20.28 kmpl,1462 CC,104 bhp,5,28000,870000
+Tata,Safari,2021,Diesel,Automatic,Dealer,First Owner,16.13 kmpl,1956 CC,170 bhp,6,7000,1980000
+Hyundai,Aura,2021,Petrol,AMT,Individual,First Owner,20.5 kmpl,1197 CC,83 bhp,5,12000,680000
+Kia,Sonet,2021,Diesel,Automatic,Dealer,First Owner,24.1 kmpl,1493 CC,115 bhp,5,9000,1250000
+Maruti,S-Presso,2020,Petrol,AMT,Individual,First Owner,24.12 kmpl,998 CC,68 bhp,5,18000,430000
+Honda,Mobilio,2016,Diesel,Manual,Dealer,Second Owner,24.0 kmpl,1498 CC,100 bhp,7,65000,780000
+Volkswagen,Tiguan,2019,Petrol,Automatic,Dealer,First Owner,15.56 kmpl,1984 CC,190 bhp,5,28000,2650000
+Toyota,Land Cruiser,2018,Diesel,Automatic,Dealer,First Owner,11.6 kmpl,4461 CC,262 bhp,8,42000,8500000
+Maruti,XL6,2020,Petrol,Automatic,Dealer,First Owner,19.01 kmpl,1462 CC,105 bhp,6,18000,1050000
+Hyundai,i10,2016,Petrol,Manual,Individual,Second Owner,18.9 kmpl,1086 CC,69 bhp,5,65000,280000
+Ford,Freestyle,2019,Diesel,Manual,Individual,First Owner,24.4 kmpl,1499 CC,100 bhp,5,35000,720000
+Tata,Punch,2022,Petrol,AMT,Dealer,First Owner,20.09 kmpl,1199 CC,86 bhp,5,4000,820000
+Mahindra,KUV100,2018,Petrol,Manual,Individual,Second Owner,18.15 kmpl,1198 CC,83 bhp,6,52000,420000
+Maruti,Gypsy,2015,Petrol,Manual,Individual,Third Owner,12.0 kmpl,1298 CC,80 bhp,6,120000,280000
+Hyundai,Palisade,2021,Diesel,Automatic,Dealer,First Owner,12.8 kmpl,2199 CC,200 bhp,7,8000,3800000
+Honda,Passport,2020,Petrol,Automatic,Dealer,First Owner,14.5 kmpl,3471 CC,280 bhp,5,15000,5200000
+Renault,Triber,2020,Petrol,AMT,Individual,First Owner,20.0 kmpl,999 CC,72 bhp,7,22000,560000
+Maruti,Swift Dzire,2016,Diesel,Manual,Individual,Second Owner,26.59 kmpl,1248 CC,74 bhp,5,75000,480000
+Toyota,Yaris,2019,Petrol,CVT,Dealer,First Owner,17.1 kmpl,1496 CC,107 bhp,5,28000,1050000
+Hyundai,Sonata,2019,Petrol,Automatic,Dealer,First Owner,15.3 kmpl,1999 CC,178 bhp,5,22000,2800000
+Tata,Indica,2014,Diesel,Manual,Individual,Third Owner,20.0 kmpl,1396 CC,70 bhp,5,110000,180000
+Maruti,Omni,2015,Petrol,Manual,Individual,Third Owner,11.5 kmpl,796 CC,40 bhp,8,130000,120000
+Mahindra,Marazzo,2019,Diesel,Manual,Dealer,First Owner,17.0 kmpl,1497 CC,121 bhp,7,28000,1380000
+Ford,Endeavour,2018,Diesel,Automatic,Dealer,First Owner,13.9 kmpl,3198 CC,200 bhp,7,48000,2950000
+Volkswagen,Taigun,2022,Petrol,DCT,Dealer,First Owner,17.02 kmpl,1498 CC,150 bhp,5,5000,1680000
+Maruti,Jimny,2023,Petrol,Automatic,Dealer,First Owner,16.39 kmpl,1462 CC,105 bhp,4,2000,1550000
+Hyundai,Alcazar,2021,Diesel,Automatic,Dealer,First Owner,18.1 kmpl,1493 CC,115 bhp,6,10000,1980000
+Kia,EV6,2022,Electric,Automatic,Dealer,First Owner,528.0 km/charge,NA CC,229 bhp,5,3000,5995000
+Tata,Tigor EV,2021,Electric,Automatic,Dealer,First Owner,306.0 km/charge,NA CC,75 bhp,5,8000,1250000
+Maruti,Fronx,2023,Petrol,Automatic,Dealer,First Owner,21.79 kmpl,1197 CC,90 bhp,5,2000,1050000
+Honda,Elevate,2023,Petrol,CVT,Dealer,First Owner,15.31 kmpl,1498 CC,121 bhp,5,1500,1850000
+Hyundai,Exter,2023,Petrol,AMT,Dealer,First Owner,19.4 kmpl,1197 CC,83 bhp,5,2000,830000
+Tata,Curvv EV,2024,Electric,Automatic,Dealer,First Owner,502.0 km/charge,NA CC,167 bhp,5,500,2199000
+Kia,Syros,2025,Diesel,Automatic,Dealer,First Owner,21.4 kmpl,1493 CC,115 bhp,5,100,1850000
+Maruti,Grand Vitara,2022,Petrol,Automatic,Dealer,First Owner,27.97 kmpl,1490 CC,116 bhp,5,8000,1650000
+Toyota,Urban Cruiser Hyryder,2022,Petrol,Automatic,Dealer,First Owner,27.97 kmpl,1490 CC,116 bhp,5,9000,1650000
+Mahindra,XUV700,2022,Diesel,Automatic,Dealer,First Owner,16.3 kmpl,2184 CC,185 bhp,7,12000,2500000
+Hyundai,Ioniq 5,2023,Electric,Automatic,Dealer,First Owner,631.0 km/charge,NA CC,217 bhp,5,4000,4499000
+Maruti,Alto K10,2022,Petrol,AMT,Individual,First Owner,24.39 kmpl,998 CC,67 bhp,5,15000,420000
+Tata,Nexon EV,2021,Electric,Automatic,Dealer,First Owner,312.0 km/charge,NA CC,129 bhp,5,10000,1450000
+Honda,WRV 2023,2023,Petrol,Manual,Dealer,First Owner,16.9 kmpl,1199 CC,90 bhp,5,3000,1050000
+Volkswagen,Virtus,2022,Petrol,Automatic,Dealer,First Owner,19.89 kmpl,999 CC,115 bhp,5,8000,1450000
+Skoda,Slavia,2022,Petrol,Automatic,Dealer,First Owner,19.89 kmpl,999 CC,115 bhp,5,7000,1480000
+Nissan,Magnite,2021,Petrol,CVT,Dealer,First Owner,17.7 kmpl,999 CC,100 bhp,5,12000,850000
+Renault,Kiger,2021,Petrol,CVT,Dealer,First Owner,18.26 kmpl,999 CC,100 bhp,5,14000,820000
+MG,Hector,2020,Petrol,Automatic,Dealer,First Owner,13.96 kmpl,1451 CC,143 bhp,5,22000,1850000
+MG,ZS EV,2022,Electric,Automatic,Dealer,First Owner,461.0 km/charge,NA CC,176 bhp,5,8000,2298000
+Jeep,Compass,2019,Diesel,Automatic,Dealer,First Owner,17.1 kmpl,1956 CC,173 bhp,5,28000,2650000
+BMW,3 Series,2019,Petrol,Automatic,Dealer,First Owner,15.9 kmpl,1998 CC,258 bhp,5,30000,3950000
+Mercedes,C-Class,2020,Petrol,Automatic,Dealer,First Owner,13.3 kmpl,1991 CC,204 bhp,5,22000,4500000
+Audi,A4,2019,Diesel,Automatic,Dealer,First Owner,17.01 kmpl,1968 CC,150 bhp,5,28000,3800000
